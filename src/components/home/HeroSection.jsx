@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, MapPin, ArrowRight, TrendingUp, Sparkles, ShieldCheck, Award } from "lucide-react";
+import { Search, MapPin, ArrowRight, TrendingUp, Sparkles, Award } from "lucide-react";
 import { useJobs } from "../../context/JobContext";
 
 export default function HeroSection() {
@@ -37,29 +37,33 @@ export default function HeroSection() {
       <div className="absolute top-10 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[140px] pointer-events-none"></div>
       <div className="absolute bottom-10 left-1/3 w-80 h-80 bg-amber-400/5 rounded-full blur-[100px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full px-3 sm:px-5 lg:px-8 relative z-10">
         
         {/* Top VIP Announcement Badge */}
         <div className="flex justify-center mb-8">
           <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-slate-900/90 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold shadow-xl backdrop-blur-xl hover:border-amber-400/60 transition cursor-pointer">
             <span className="flex h-2 w-2 rounded-full bg-amber-400 animate-ping"></span>
             <Sparkles className="w-4 h-4 text-amber-400" />
-            <span className="tracking-wide">Exclusive Opportunities for Visionary Minds</span>
+            <span className="font-display tracking-widest text-[11px] font-bold">YOUR NEXT OPPORTUNITY STARTS HERE</span>
+            <span className="text-slate-500">•</span>
+            <span className="text-slate-300 font-light">Explore roles from companies hiring now</span>
             <ArrowRight className="w-3.5 h-3.5 ml-1 text-amber-400" />
           </div>
         </div>
 
         {/* Hero Editorial Heading */}
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08]">
-            Where Elite Leaders &{" "}
-            <span className="text-gold-gradient font-extrabold">
-              World-Class Talent
-            </span>{" "}
-            Converge
+          <div className="inline-block mb-3">
+            <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-gold-gradient font-display">
+              FIND WORK THAT MOVES YOU FORWARD
+            </span>
+          </div>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] font-serif-luxury">
+            Find your next{" "}
+            <span className="text-gold-gradient italic font-normal">great opportunity</span>
           </h1>
           <p className="mt-6 text-base sm:text-lg lg:text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
-            A discreet, curated career destination connecting exceptional tech, design, product, and finance leaders with industry-defining organizations.
+            Search jobs by role, skill, or company. Discover opportunities that fit your experience, goals, and preferred location.
           </p>
         </div>
 
@@ -76,14 +80,14 @@ export default function HeroSection() {
                 <Search className="w-5 h-5 text-amber-400 shrink-0" />
                 <div className="w-full">
                   <label htmlFor="hero-keyword" className="block text-[10px] font-black uppercase tracking-widest text-slate-400">
-                    Target Role / Discipline
+                    Job title, skills, or company
                   </label>
                   <input
                     id="hero-keyword"
                     type="text"
                     value={localKeyword}
                     onChange={(e) => setLocalKeyword(e.target.value)}
-                    placeholder="e.g. Lead Architect, VP Design, React"
+                    placeholder="e.g. Software Engineer, React, Google"
                     className="w-full bg-transparent text-white placeholder-slate-500 text-sm font-semibold focus:outline-none"
                   />
                 </div>
@@ -94,14 +98,14 @@ export default function HeroSection() {
                 <MapPin className="w-5 h-5 text-amber-400 shrink-0" />
                 <div className="w-full">
                   <label htmlFor="hero-location" className="block text-[10px] font-black uppercase tracking-widest text-slate-400">
-                    Location Preference
+                    Location
                   </label>
                   <input
                     id="hero-location"
                     type="text"
                     value={localLocation}
                     onChange={(e) => setLocalLocation(e.target.value)}
-                    placeholder="Global Remote, London, SF"
+                    placeholder="City, state, or Remote"
                     className="w-full bg-transparent text-white placeholder-slate-500 text-sm font-semibold focus:outline-none"
                   />
                 </div>
@@ -114,7 +118,7 @@ export default function HeroSection() {
                   className="w-full py-4 px-6 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black rounded-2xl shadow-xl shadow-amber-500/20 hover:shadow-amber-500/40 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-base"
                 >
                   <Search className="w-5 h-5 stroke-[2.5]" />
-                  Explore Roles
+                  Search jobs
                 </button>
               </div>
 
@@ -125,9 +129,9 @@ export default function HeroSection() {
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-400">
             <span className="font-semibold text-amber-300/90 flex items-center gap-1.5 mr-1">
               <TrendingUp className="w-3.5 h-3.5 text-amber-400" />
-              Prestige Searches:
+              Popular searches:
             </span>
-            {["Lead Full Stack", "Remote VIP", "AI Research", "Product VP", "Fintech Executive", "$150k+"].map((tag) => (
+            {["Software Engineer", "Data Analyst", "Product Manager", "Work from home", "Freshers", "Marketing"].map((tag) => (
               <button
                 key={tag}
                 type="button"

@@ -1,190 +1,153 @@
-# 🚀 HireHub — Modern Responsive Job Board Website
+# HireHub Elite
 
-A modern, fast, and feature-rich Job Board web application built using **React**, **Vite**, and **Tailwind CSS**. Designed with an intuitive, human-centered UI/UX, responsive across all screen breakpoints (320px, 768px, 1024px, 1440px+).
-
-Developed for **Bademala Nikhil Nikhil** (Frontend Task).
+HireHub Elite is a premium executive job board built with React and Vite. It is designed for high-level professionals seeking senior, leadership, and specialized roles across technology, design, product, marketing, finance, and operations. The interface combines a polished luxury aesthetic with an intuitive hiring experience, making it easy to browse opportunities, compare companies, save roles, and track applications.
 
 ---
 
-## 🌟 Key Features
+## Overview
 
-### 1. 🏠 Modern Landing Page
-- **Hero Section**:
-  - Keyword/role search input
-  - Location search input
-  - Quick-search tags (`React`, `Remote`, `UI/UX`, `Python`, etc.)
-  - Real-time impact metrics (15k+ jobs, 850+ companies, 98% placement rate)
-  - Animated glowing background with micro-interactions
-- **Job Categories Section**:
-  - In-demand sectors: **Software Development**, **Data Science**, **UI/UX Design**, **Marketing**, **Finance**, **Human Resources**, **Product Management**, **Cybersecurity & DevOps**
-  - Interactive cards with dynamic counts and instant category filter navigation
-- **Featured Jobs Section**:
-  - Filter tabs: *All Featured*, *Software & Tech*, *Design & Creative*, *100% Remote*, *Urgently Hiring*
-  - Comprehensive job cards with title, company, logo, location badge, job type, experience, salary, urgent/featured badges, and bookmark toggle
-- **Popular Companies Section**:
-  - Highlighting verified companies (*TechFlow*, *InnovateStudio*, *DataStride*, *FinPulse*, etc.) with company ratings, perks, and direct role links
+This project is a modern, responsive job board with:
 
-### 2. 🔍 Advanced Job Search & Multi-Filter Engine
-- **Live Search Bar**: Search by keyword, title, skills, company, or location.
-- **Sidebar Filter System**:
-  - Workplace Model: Remote, Hybrid, On-site
-  - Employment Type: Full-time, Part-time, Contract, Internship
-  - Experience Level: Entry Level, Mid Level, Senior Level, Lead / Executive
-  - Category selector
-  - Salary Range expectation slider
-  - Urgently hiring toggle
-- **Layout Switcher**: Toggle between responsive Grid View and dense List View.
-- **Sorting**: Latest first, Highest Salary, Urgent roles first.
-- **Active Filter Chips**: Instant dismissible badges for active criteria with "Clear All" reset.
+- A premium landing page for high-value job discovery
+- Role and location-based search filters
+- Company and job listings with rich details
+- Saved jobs functionality
+- Application tracking dashboard
+- About page and FAQ section
+- Authentication and demo login flow
+- Responsive design optimized for desktop, tablet, and mobile
 
-### 3. 📄 Detailed Job Modal & Information View
-- Complete role overview, responsibilities, requirements checklist, technical skills badges, company perks, deadline, and salary ranges.
-- One-click share functionality (copies link to clipboard with confirmation toast).
-
-### 4. 📝 Interactive Application Modal
-- Pre-filled candidate details (customizable).
-- Resume / CV upload dropzone (supports drag & drop / file selection).
-- Cover note textarea and instant validation.
-- Real-time simulated application submission with animated loading spinner and success confirmation screen.
-
-### 5. 💖 Saved Jobs / Wishlist UI
-- Save or unsave any job from anywhere with persistent `localStorage` storage.
-- Real-time badge counter on the Navbar.
-- Dedicated Wishlist view with quick apply and remove actions.
-
-### 6. 👤 Candidate Profile & Dashboard
-- Full Candidate Overview (Bademala Nikhil):
-  - Profile card with avatar, role, contact info, bio, skills tags, and resume attachment.
-  - Profile edit settings with live persistence.
-- Application Tracking:
-  - Tracks all applied jobs with status badges: `Applied`, `Under Review`, `Interview Scheduled`, `Offer Extended`.
-  - Date applied timestamp and direct details preview.
-
-### 7. 🏢 Verified Companies Directory
-- Search companies by name or industry.
-- Filter by industry pills (Cloud & AI, Fintech, Design, Cybersecurity, HealthTech, HR Tech).
-- Employee counts, ratings, and open position counts.
-
-### 8. ℹ️ About Us & FAQ Accordion
-- Platform mission, quality assurance, salary transparency, and global mobility values.
-- Collapsible interactive FAQ answering top candidate questions.
-
-### 9. 🔔 Toast Notification System
-- Floating notification alerts for actions: save/unsave jobs, submit application, profile updates, and filter resets.
+The application is structured around a React context-based state system and uses localStorage to persist saved jobs, applied jobs, and user profile data.
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## Features
 
-- **Framework**: React 19 + Vite
-- **Styling**: Tailwind CSS v4
-- **Icons**: Lucide React
-- **State Management**: React Context API (`JobProvider`, `useJobs`) with persistent `localStorage` for Saved and Applied jobs.
-- **Clean Folder Structure**:
-  ```
-  hirehub-job-board/
-  ├── public/
-  │   └── favicon.svg
-  ├── src/
-  │   ├── assets/
-  │   ├── components/
-  │   │   ├── about/
-  │   │   │   └── AboutPage.jsx
-  │   │   ├── common/
-  │   │   │   └── Toast.jsx
-  │   │   ├── companies/
-  │   │   │   └── CompaniesPage.jsx
-  │   │   ├── dashboard/
-  │   │   │   ├── CandidateDashboard.jsx
-  │   │   │   └── SavedJobsPage.jsx
-  │   │   ├── home/
-  │   │   │   ├── FeaturedJobs.jsx
-  │   │   │   ├── HeroSection.jsx
-  │   │   │   ├── JobCategories.jsx
-  │   │   │   └── PopularCompanies.jsx
-  │   │   ├── jobs/
-  │   │   │   ├── JobCard.jsx
-  │   │   │   ├── JobFilters.jsx
-  │   │   │   └── JobsListingPage.jsx
-  │   │   ├── layout/
-  │   │   │   ├── Footer.jsx
-  │   │   │   └── Navbar.jsx
-  │   │   └── modals/
-  │   │       ├── ApplyModal.jsx
-  │   │       ├── AuthModal.jsx
-  │   │       └── JobDetailsModal.jsx
-  │   ├── context/
-  │   │   ├── jobContextDef.js
-  │   │   ├── JobContext.jsx
-  │   │   └── useJobs.js
-  │   ├── data/
-  │   │   ├── categoriesData.js
-  │   │   ├── companiesData.js
-  │   │   └── jobsData.js
-  │   ├── App.jsx
-  │   ├── index.css
-  │   └── main.jsx
-  ├── index.html
-  ├── vite.config.js
-  └── package.json
-  ```
+### Executive-style landing experience
+- Hero section with strong branding and professional messaging
+- Search for jobs by keyword and location
+- Quick filter chips for common job types and specialties
+- Featured roles and popular companies sections
+
+### Advanced filtering and job discovery
+- Filter by remote, hybrid, or on-site roles
+- Filter by employment type and experience level
+- Sort jobs by relevance and salary
+- Toggle urgent openings and clear active filters easily
+
+### Job detail and application flow
+- Detailed modal for each role with responsibilities and requirements
+- Candidate application form with resume upload support
+- Cover note field and submission feedback
+- Toast notifications for user actions
+
+### User dashboard and job tracking
+- Saved jobs list
+- Applied jobs tracking with status updates
+- Candidate profile management
+- Resume and portfolio metadata display
+
+### Brand and content sections
+- About page highlighting product mission and value proposition
+- FAQ accordion for common user questions
+- Premium, modern UI styling with gold-accented luxury branding
 
 ---
 
-## 💻 Getting Started Locally
+## Tech Stack
 
-1. **Clone the repository**:
-   ```bash
-   git clone <repository-url>
-   cd hirehub-job-board
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**:
-   ```bash
-   npm run dev
-   ```
-
-4. **Build for production**:
-   ```bash
-   npm run build
-   ```
-
-5. **Preview production build**:
-   ```bash
-   npm run preview
-   ```
+- React 19
+- Vite
+- JavaScript
+- Tailwind CSS
+- Lucide React icons
+- Local storage persistence
 
 ---
 
-## 🌐 Deployment Instructions
+## Project Structure
 
-### Deploy to Vercel (Recommended):
-1. Push this repository to your GitHub account:
-   ```bash
-   git remote add origin https://github.com/<your-username>/hirehub-job-board.git
-   git branch -M main
-   git push -u origin main
-   ```
-2. Go to [vercel.com](https://vercel.com) and log in.
-3. Click **"Add New Project"** and import the `hirehub-job-board` repository.
-4. Framework preset will automatically be detected as **Vite**.
-5. Click **"Deploy"**. Your live URL will be ready in under a minute!
-
-### Deploy to Netlify:
-1. Push this repository to GitHub.
-2. Go to [netlify.com](https://netlify.com) and log in.
-3. Click **"Add new site" > "Import an existing project"** from GitHub.
-4. Build command: `npm run build`
-5. Publish directory: `dist`
-6. Click **"Deploy site"**.
+```bash
+hirehub-job-board/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── about/
+│   │   ├── common/
+│   │   ├── companies/
+│   │   ├── dashboard/
+│   │   ├── home/
+│   │   ├── jobs/
+│   │   ├── layout/
+│   │   └── modals/
+│   ├── context/
+│   ├── data/
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── index.html
+├── package.json
+├── vite.config.js
+├── eslint.config.js
+├── README.md
+└── public/
+```
 
 ---
 
-## 👨‍💻 Candidate / Developer
-- **Name**: Bademala Nikhil Nikhil
-- **Project**: Frontend Task – Job Board Website
+## Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Run the app locally
+
+```bash
+npm run dev
+```
+
+### 3. Build for production
+
+```bash
+npm run build
+```
+
+### 4. Preview production build
+
+```bash
+npm run preview
+```
+
+---
+
+## Deployment
+
+### Vercel
+1. Push the repo to GitHub
+2. Import the project in Vercel
+3. Select the Vite framework preset
+4. Deploy
+
+### Netlify
+1. Push the project to GitHub
+2. Import it into Netlify
+3. Set the build command to `npm run build`
+4. Set the publish directory to `dist`
+5. Deploy
+
+---
+
+## Notes
+
+This project is designed as a frontend showcase and can be extended with real backend APIs, authentication services, database integration, and production-grade user data storage.
+
+---
+
+## Developer
+
+- Name: Bademala Nikhil
+- Project: HireHub Elite Frontend Job Board

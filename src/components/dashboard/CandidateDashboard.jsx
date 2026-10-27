@@ -72,7 +72,7 @@ export default function CandidateDashboard() {
 
   return (
     <div className="py-14 bg-slate-950 min-h-screen text-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div className="w-full px-3 sm:px-5 lg:px-8 space-y-10">
         
         {/* Candidate Profile Header Card */}
         <div className="bg-slate-900/80 rounded-3xl border border-amber-500/30 p-8 sm:p-10 shadow-2xl relative overflow-hidden backdrop-blur-2xl gold-glow">

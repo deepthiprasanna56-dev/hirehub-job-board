@@ -36,7 +36,7 @@ export default function Footer() {
       {/* Background radial highlight */}
       <div className="absolute top-0 right-1/3 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[140px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full px-3 sm:px-5 lg:px-8 relative z-10">
         
         {/* Top Newsletter Grid */}
         <div className="bg-slate-900/80 rounded-3xl p-8 sm:p-12 mb-16 border border-amber-500/20 shadow-2xl relative overflow-hidden backdrop-blur-2xl gold-glow">
@@ -94,13 +94,13 @@ export default function Footer() {
               <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-yellow-600 flex items-center justify-center text-slate-950 shadow-md">
                 <Crown className="w-5 h-5 stroke-[2.3]" />
               </div>
-              <span className="text-2xl font-black text-white tracking-tight">
-                Hire<span className="text-gold-gradient">Hub</span>
+              <span className="text-2xl font-black text-white tracking-wider font-display">
+                HIREHUB <span className="text-gold-gradient">ELITE</span>
               </span>
             </div>
             
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-6 font-light">
-              HireHub Elite is the gold-standard career board built for high-performing engineering, design, and executive leadership. Unparalleled compensation transparency and verified corporate retainers.
+              HIREHUB ELITE is the private placement career sanctuary for tier-1 engineering, design, and executive leadership. Unparalleled compensation transparency and verified corporate retainers.
             </p>
 
             <div className="flex items-center gap-3">
@@ -228,8 +228,14 @@ export default function Footer() {
           <div className="flex items-center gap-2">
             <span>Executive Platform developed for</span>
             <span className="font-bold text-amber-300 bg-amber-400/10 px-3 py-1 rounded-lg border border-amber-400/30">
-              Bademala Nikhil Nikhil
+              Bademala Nikhil
             </span>
+            <a
+              href="mailto:nikhil@hirehub.dev"
+              className="text-slate-400 hover:text-amber-300 transition"
+            >
+              nikhil@hirehub.dev
+            </a>
           </div>
         </div>
 

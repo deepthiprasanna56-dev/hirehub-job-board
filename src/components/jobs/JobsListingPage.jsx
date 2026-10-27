@@ -137,7 +137,7 @@ export default function JobsListingPage() {
 
   return (
     <div className="py-14 bg-slate-950 min-h-screen text-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-3 sm:px-5 lg:px-8">
         
         {/* Page Top Heading */}
         <div className="mb-10">

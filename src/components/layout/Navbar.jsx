@@ -46,7 +46,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 bg-slate-950/85 backdrop-blur-2xl border-b border-white/10 transition-all duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-3 sm:px-5 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
           {/* Logo with Luxury Crest */}
@@ -58,16 +58,16 @@ export default function Navbar() {
               <Crown className="w-6 h-6 stroke-[2.3]" />
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-2xl font-black tracking-tight text-white">
-                  Hire<span className="text-gold-gradient">Hub</span>
+              <div className="flex items-center gap-2">
+                <span className="text-xl sm:text-2xl font-black tracking-wider text-white font-display">
+                  HIREHUB <span className="text-gold-gradient">ELITE</span>
                 </span>
-                <span className="text-[10px] font-black uppercase tracking-widest px-1.5 py-0.5 rounded bg-amber-400/10 text-amber-300 border border-amber-400/30">
-                  Elite
+                <span className="hidden sm:inline-flex text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full bg-amber-400/10 text-amber-300 border border-amber-400/30">
+                  PRIVATE PLACEMENT
                 </span>
               </div>
-              <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 block -mt-1">
-                Executive & Tech Careers
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400 block -mt-0.5">
+                Executive & Tech Retainers
               </span>
             </div>
           </div>
