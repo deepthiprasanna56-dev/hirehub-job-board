@@ -3,7 +3,9 @@ import {
   Briefcase, 
   Send, 
   Mail, 
-  CheckCircle2 
+  CheckCircle2,
+  Crown,
+  Sparkles
 } from "lucide-react";
 import { useJobs } from "../../context/JobContext";
 
@@ -15,11 +17,11 @@ export default function Footer() {
   const handleSubscribe = (e) => {
     e.preventDefault();
     if (!emailInput || !emailInput.includes("@")) {
-      addToast("Please enter a valid email address", "error");
+      addToast("Please provide a valid executive email address", "error");
       return;
     }
     setSubscribed(true);
-    addToast("Thanks for subscribing to HireHub Job Alerts!", "success");
+    addToast("Subscribed! Executive briefings will arrive every Monday.", "success");
     setEmailInput("");
   };
 
@@ -29,24 +31,26 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#02050c] text-slate-300 pt-16 pb-12 border-t border-white/10 mt-auto relative overflow-hidden">
+      
+      {/* Background radial highlight */}
+      <div className="absolute top-0 right-1/3 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[140px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Newsletter Grid */}
-        <div className="bg-gradient-to-r from-indigo-900/60 via-slate-800 to-indigo-950/80 rounded-3xl p-8 sm:p-10 mb-16 border border-indigo-500/20 shadow-2xl relative overflow-hidden">
-          <div className="absolute -right-12 -top-12 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
-          
+        <div className="bg-slate-900/80 rounded-3xl p-8 sm:p-12 mb-16 border border-amber-500/20 shadow-2xl relative overflow-hidden backdrop-blur-2xl gold-glow">
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 mb-3">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-widest bg-amber-400/10 text-amber-300 border border-amber-400/30 mb-3.5">
                 <Mail className="w-3.5 h-3.5" />
-                Never Miss an Opportunity
+                Discreet Briefings
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                Get Curated Job Alerts Straight to Your Inbox
+              <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+                Receive Curated Executive Mandates Weekly
               </h3>
-              <p className="mt-2 text-slate-400 text-sm sm:text-base max-w-xl">
-                Subscribe to receive hand-picked tech, design, and product opportunities matching your preferences every Monday.
+              <p className="mt-2.5 text-slate-400 text-sm sm:text-base max-w-xl font-light">
+                Direct dispatches on strategic technology leadership, equity structures, and newly opened executive board retainers.
               </p>
             </div>
 
@@ -54,7 +58,7 @@ export default function Footer() {
               {subscribed ? (
                 <div className="flex items-center gap-3 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-emerald-400 font-semibold text-sm">
                   <CheckCircle2 className="w-5 h-5 shrink-0" />
-                  <span>You're subscribed! Weekly digests will be sent to your email.</span>
+                  <span>You are subscribed. Weekly executive briefs will be dispatched to your inbox.</span>
                 </div>
               ) : (
                 <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2.5">
@@ -62,15 +66,15 @@ export default function Footer() {
                     type="email"
                     value={emailInput}
                     onChange={(e) => setEmailInput(e.target.value)}
-                    placeholder="Enter your personal email..."
-                    className="flex-1 px-4 py-3.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/20 text-sm"
+                    placeholder="Enter confidential email..."
+                    className="flex-1 px-4 py-3.5 rounded-2xl bg-slate-950 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-500/20 text-sm"
                   />
                   <button
                     type="submit"
-                    className="px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50"
+                    className="px-7 py-3.5 bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black rounded-2xl text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20"
                   >
                     Subscribe
-                    <Send className="w-4 h-4" />
+                    <Send className="w-4 h-4 stroke-[2.5]" />
                   </button>
                 </form>
               )}
@@ -79,22 +83,24 @@ export default function Footer() {
         </div>
 
         {/* Main Footer Links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 pb-12 border-b border-white/10">
           
           {/* Brand Col */}
           <div className="col-span-2">
             <div 
               onClick={() => navigateTo("home")}
-              className="flex items-center gap-2.5 cursor-pointer mb-4"
+              className="flex items-center gap-3 cursor-pointer mb-5"
             >
-              <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-lg shadow-indigo-600/30">
-                <Briefcase className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-yellow-600 flex items-center justify-center text-slate-950 shadow-md">
+                <Crown className="w-5 h-5 stroke-[2.3]" />
               </div>
-              <span className="text-2xl font-black text-white tracking-tight">HireHub</span>
+              <span className="text-2xl font-black text-white tracking-tight">
+                Hire<span className="text-gold-gradient">Hub</span>
+              </span>
             </div>
             
-            <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">
-              HireHub is a modern, responsive job board built for top tech talent and premier organizations. Discover remote, hybrid, and onsite careers with competitive compensation.
+            <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-6 font-light">
+              HireHub Elite is the gold-standard career board built for high-performing engineering, design, and executive leadership. Unparalleled compensation transparency and verified corporate retainers.
             </p>
 
             <div className="flex items-center gap-3">
@@ -102,7 +108,7 @@ export default function Footer() {
                 href="https://github.com" 
                 target="_blank" 
                 rel="noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-indigo-600 flex items-center justify-center text-slate-300 hover:text-white transition"
+                className="w-10 h-10 rounded-xl bg-slate-900 border border-white/10 hover:border-amber-400 hover:text-amber-300 flex items-center justify-center text-slate-400 transition"
                 aria-label="GitHub"
               >
                 <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
@@ -113,7 +119,7 @@ export default function Footer() {
                 href="https://linkedin.com" 
                 target="_blank" 
                 rel="noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-indigo-600 flex items-center justify-center text-slate-300 hover:text-white transition"
+                className="w-10 h-10 rounded-xl bg-slate-900 border border-white/10 hover:border-amber-400 hover:text-amber-300 flex items-center justify-center text-slate-400 transition"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
@@ -124,22 +130,11 @@ export default function Footer() {
                 href="https://twitter.com" 
                 target="_blank" 
                 rel="noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-indigo-600 flex items-center justify-center text-slate-300 hover:text-white transition"
+                className="w-10 h-10 rounded-xl bg-slate-900 border border-white/10 hover:border-amber-400 hover:text-amber-300 flex items-center justify-center text-slate-400 transition"
                 aria-label="Twitter"
               >
                 <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
                   <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.162c-.424.731-.666 1.581-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.18 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/>
-                </svg>
-              </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-indigo-600 flex items-center justify-center text-slate-300 hover:text-white transition"
-                aria-label="Instagram"
-              >
-                <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                 </svg>
               </a>
             </div>
@@ -147,31 +142,26 @@ export default function Footer() {
 
           {/* Col 2: Candidates */}
           <div>
-            <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-4">Candidates</h4>
-            <ul className="space-y-2.5 text-sm">
+            <h4 className="text-white font-black text-xs tracking-widest uppercase mb-4">Talent Suite</h4>
+            <ul className="space-y-3 text-sm font-light">
               <li>
-                <button onClick={() => navigateTo("jobs")} className="text-slate-400 hover:text-white transition">
-                  Browse All Jobs
+                <button onClick={() => navigateTo("jobs")} className="text-slate-400 hover:text-amber-300 transition">
+                  Browse Appointments
                 </button>
               </li>
               <li>
-                <button onClick={() => navigateTo("saved")} className="text-slate-400 hover:text-white transition">
-                  Saved Job Wishlist
+                <button onClick={() => navigateTo("saved")} className="text-slate-400 hover:text-amber-300 transition">
+                  Saved Mandates
                 </button>
               </li>
               <li>
-                <button onClick={() => navigateTo("dashboard")} className="text-slate-400 hover:text-white transition">
-                  Candidate Dashboard
+                <button onClick={() => navigateTo("dashboard")} className="text-slate-400 hover:text-amber-300 transition">
+                  Executive Dashboard
                 </button>
               </li>
               <li>
-                <button onClick={() => navigateTo("companies")} className="text-slate-400 hover:text-white transition">
-                  Company Directory
-                </button>
-              </li>
-              <li>
-                <button onClick={() => filterByCategory("Software Development")} className="text-slate-400 hover:text-white transition">
-                  Remote Tech Jobs
+                <button onClick={() => navigateTo("companies")} className="text-slate-400 hover:text-amber-300 transition">
+                  Elite Partner Roster
                 </button>
               </li>
             </ul>
@@ -179,31 +169,26 @@ export default function Footer() {
 
           {/* Col 3: Popular Categories */}
           <div>
-            <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-4">Categories</h4>
-            <ul className="space-y-2.5 text-sm">
+            <h4 className="text-white font-black text-xs tracking-widest uppercase mb-4">Disciplines</h4>
+            <ul className="space-y-3 text-sm font-light">
               <li>
-                <button onClick={() => filterByCategory("Software Development")} className="text-slate-400 hover:text-white transition">
-                  Software Development
+                <button onClick={() => filterByCategory("Software Development")} className="text-slate-400 hover:text-amber-300 transition">
+                  Executive Engineering
                 </button>
               </li>
               <li>
-                <button onClick={() => filterByCategory("UI/UX Design")} className="text-slate-400 hover:text-white transition">
-                  UI/UX Design
+                <button onClick={() => filterByCategory("UI/UX Design")} className="text-slate-400 hover:text-amber-300 transition">
+                  Product & Design
                 </button>
               </li>
               <li>
-                <button onClick={() => filterByCategory("Data Science")} className="text-slate-400 hover:text-white transition">
-                  Data Science & AI
+                <button onClick={() => filterByCategory("Data Science")} className="text-slate-400 hover:text-amber-300 transition">
+                  Artificial Intelligence
                 </button>
               </li>
               <li>
-                <button onClick={() => filterByCategory("Marketing")} className="text-slate-400 hover:text-white transition">
-                  Product Marketing
-                </button>
-              </li>
-              <li>
-                <button onClick={() => filterByCategory("Finance")} className="text-slate-400 hover:text-white transition">
-                  Finance & Fintech
+                <button onClick={() => filterByCategory("Finance")} className="text-slate-400 hover:text-amber-300 transition">
+                  Fintech & Capital
                 </button>
               </li>
             </ul>
@@ -211,31 +196,26 @@ export default function Footer() {
 
           {/* Col 4: Platform & Support */}
           <div>
-            <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-4">About & Legal</h4>
-            <ul className="space-y-2.5 text-sm">
+            <h4 className="text-white font-black text-xs tracking-widest uppercase mb-4">Ecosystem</h4>
+            <ul className="space-y-3 text-sm font-light">
               <li>
-                <button onClick={() => navigateTo("about")} className="text-slate-400 hover:text-white transition">
-                  About Us & Team
+                <button onClick={() => navigateTo("about")} className="text-slate-400 hover:text-amber-300 transition">
+                  The Philosophy
                 </button>
               </li>
               <li>
-                <a href="#faq" onClick={() => navigateTo("about")} className="text-slate-400 hover:text-white transition">
+                <a href="#faq" onClick={() => navigateTo("about")} className="text-slate-400 hover:text-amber-300 transition">
                   Frequently Asked Questions
                 </a>
               </li>
               <li>
-                <span className="text-slate-400 block hover:text-white transition cursor-pointer">
-                  Privacy Policy
+                <span className="text-slate-400 block hover:text-amber-300 transition cursor-pointer">
+                  Confidentiality Policy
                 </span>
               </li>
               <li>
-                <span className="text-slate-400 block hover:text-white transition cursor-pointer">
-                  Terms of Service
-                </span>
-              </li>
-              <li>
-                <span className="text-slate-400 block hover:text-white transition cursor-pointer">
-                  Contact Support
+                <span className="text-slate-400 block hover:text-amber-300 transition cursor-pointer">
+                  Partner Concierge
                 </span>
               </li>
             </ul>
@@ -244,10 +224,10 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} HireHub Inc. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} HireHub Elite. All rights reserved.</p>
           <div className="flex items-center gap-2">
-            <span>Frontend Task Project developed for</span>
-            <span className="font-semibold text-indigo-400 bg-indigo-950/60 px-2.5 py-1 rounded-md border border-indigo-800/40">
+            <span>Executive Platform developed for</span>
+            <span className="font-bold text-amber-300 bg-amber-400/10 px-3 py-1 rounded-lg border border-amber-400/30">
               Bademala Nikhil Nikhil
             </span>
           </div>

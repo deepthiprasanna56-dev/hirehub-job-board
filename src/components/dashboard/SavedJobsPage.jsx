@@ -1,4 +1,4 @@
-import { Bookmark, ArrowRight } from "lucide-react";
+import { Bookmark, ArrowRight, Sparkles } from "lucide-react";
 import { useJobs } from "../../context/JobContext";
 import JobCard from "../jobs/JobCard";
 
@@ -8,48 +8,48 @@ export default function SavedJobsPage() {
   const savedJobs = jobs.filter((job) => savedJobIds.includes(job.id));
 
   return (
-    <div className="py-12 bg-slate-50 min-h-screen">
+    <div className="py-14 bg-slate-950 min-h-screen text-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 mb-2">
-              <Bookmark className="w-3.5 h-3.5 fill-indigo-600" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-widest bg-amber-400/10 text-amber-300 border border-amber-400/30 mb-2.5">
+              <Sparkles className="w-3.5 h-3.5" />
               <span>Personal Wishlist</span>
             </div>
-            <h1 className="text-3xl font-black text-slate-900 tracking-tight">
-              Saved Jobs
+            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+              Saved Appointments
             </h1>
-            <p className="text-slate-600 text-sm mt-1">
-              Keep track of roles you're interested in and apply whenever you're ready.
+            <p className="text-slate-400 text-sm mt-1.5 font-light">
+              Curate roles of interest and submit your candidatures at your own pace.
             </p>
           </div>
 
           {savedJobs.length > 0 && (
-            <div className="text-sm font-semibold text-slate-600 bg-white px-4 py-2.5 rounded-2xl border border-slate-200 shadow-2xs self-start sm:self-auto">
-              Total Saved: <span className="font-extrabold text-indigo-600">{savedJobs.length}</span> positions
+            <div className="text-sm font-semibold text-slate-300 bg-slate-900 px-5 py-3 rounded-2xl border border-white/10 shadow-lg self-start sm:self-auto">
+              Curated: <span className="font-black text-gold-gradient">{savedJobs.length}</span> positions
             </div>
           )}
         </div>
 
         {/* Content */}
         {savedJobs.length === 0 ? (
-          <div className="bg-white rounded-3xl border border-slate-200/90 p-12 text-center max-w-xl mx-auto shadow-xs my-8">
-            <div className="w-16 h-16 bg-indigo-50 text-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <div className="bg-slate-900/60 rounded-3xl border border-white/10 p-14 text-center max-w-xl mx-auto shadow-2xl my-8">
+            <div className="w-16 h-16 bg-amber-400/10 text-amber-400 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-amber-400/20">
               <Bookmark className="w-8 h-8" />
             </div>
-            <h3 className="text-xl font-black text-slate-900">Your wishlist is empty</h3>
-            <p className="mt-2 text-sm text-slate-500 leading-relaxed">
-              You haven't saved any jobs yet. When browsing jobs, click the bookmark icon to save roles here for later review.
+            <h3 className="text-2xl font-black text-white">Your Wishlist is Empty</h3>
+            <p className="mt-2 text-sm text-slate-400 leading-relaxed font-light">
+              You haven't bookmarked any appointments yet. Click the bookmark icon on any card to save roles here.
             </p>
-            <div className="mt-6">
+            <div className="mt-8">
               <button
                 onClick={() => {
                   setCurrentView("jobs");
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white text-sm font-bold shadow-md hover:bg-indigo-700 transition"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 text-sm font-black shadow-xl shadow-amber-500/20 hover:scale-105 transition"
               >
                 <span>Browse Opportunities</span>
                 <ArrowRight className="w-4 h-4" />

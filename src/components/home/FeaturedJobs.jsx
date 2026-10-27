@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Crown } from "lucide-react";
 import { useJobs } from "../../context/JobContext";
 import JobCard from "../jobs/JobCard";
 
@@ -8,11 +8,11 @@ export default function FeaturedJobs() {
   const [activeTab, setActiveTab] = useState("all");
 
   const tabs = [
-    { id: "all", label: "All Featured" },
-    { id: "tech", label: "Software & Tech" },
-    { id: "design", label: "Design & Creative" },
-    { id: "remote", label: "100% Remote" },
-    { id: "urgent", label: "Urgently Hiring" }
+    { id: "all", label: "All Curated Roles" },
+    { id: "tech", label: "Executive Tech" },
+    { id: "design", label: "Product & Design" },
+    { id: "remote", label: "Global Remote" },
+    { id: "urgent", label: "Priority Retainers" }
   ];
 
   // Filter jobs based on active tab
@@ -26,21 +26,21 @@ export default function FeaturedJobs() {
   }).slice(0, 6);
 
   return (
-    <section className="py-16 sm:py-24 bg-white">
+    <section className="py-20 sm:py-28 bg-slate-950 border-b border-white/10 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header & Tabs */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
           <div>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-              Hand-picked Opportunities
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-widest bg-amber-400/10 text-amber-300 border border-amber-400/30">
+              <Crown className="w-3.5 h-3.5 text-amber-400" />
+              Hand-Selected Appointments
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-2">
-              Featured Job Openings
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mt-3">
+              Featured Executive Positions
             </h2>
-            <p className="mt-2 text-slate-600 text-sm sm:text-base max-w-xl">
-              Verified roles from industry-leading companies with competitive salaries and great cultures.
+            <p className="mt-2 text-slate-400 text-sm sm:text-base max-w-xl font-light">
+              Verified high-compensation roles with equity, sovereign autonomy, and industry-defining impact.
             </p>
           </div>
 
@@ -50,10 +50,10 @@ export default function FeaturedJobs() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
                   activeTab === tab.id
-                    ? "bg-slate-900 text-white shadow-md shadow-slate-900/10"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
+                    ? "bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 shadow-lg shadow-amber-500/20 font-black"
+                    : "bg-slate-900/90 text-slate-300 hover:text-white border border-white/10 hover:border-white/20"
                 }`}
               >
                 {tab.label}
@@ -70,16 +70,16 @@ export default function FeaturedJobs() {
         </div>
 
         {/* Bottom CTA to browse all jobs */}
-        <div className="mt-14 text-center">
+        <div className="mt-16 text-center">
           <button
             onClick={() => {
               setCurrentView("jobs");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-extrabold text-sm border border-indigo-200/80 shadow-xs hover:shadow-md transition-all group"
+            className="inline-flex items-center gap-3 px-9 py-4 rounded-2xl bg-slate-900/90 hover:bg-slate-900 text-amber-300 font-black text-sm border border-amber-500/30 hover:border-amber-400/60 shadow-xl transition-all group gold-glow hover:scale-[1.02]"
           >
-            <span>Explore All 16+ Live Job Opportunities</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <span>Explore All 16+ Executive Opportunities</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform text-amber-400" />
           </button>
         </div>
 

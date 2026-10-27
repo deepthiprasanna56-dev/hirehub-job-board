@@ -11,33 +11,33 @@ export default function Toast() {
       {toasts.map((toast) => (
         <div
           key={toast.id}
-          className={`pointer-events-auto flex items-start gap-3 p-4 rounded-xl shadow-xl border backdrop-blur-md transition-all duration-300 transform translate-y-0 ${
+          className={`pointer-events-auto flex items-start gap-3.5 p-4 rounded-2xl shadow-2xl border backdrop-blur-2xl transition-all duration-300 transform translate-y-0 ${
             toast.type === "success"
-              ? "bg-white/95 text-slate-800 border-emerald-200 shadow-emerald-500/10"
+              ? "bg-slate-900/95 text-white border-amber-500/40 gold-glow"
               : toast.type === "error"
-              ? "bg-white/95 text-slate-800 border-rose-200 shadow-rose-500/10"
-              : "bg-white/95 text-slate-800 border-indigo-200 shadow-indigo-500/10"
+              ? "bg-slate-900/95 text-white border-rose-500/40 shadow-rose-500/10"
+              : "bg-slate-900/95 text-white border-white/20 shadow-xl"
           }`}
         >
           <div className="shrink-0 mt-0.5">
             {toast.type === "success" && (
-              <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+              <CheckCircle2 className="w-5 h-5 text-amber-400" />
             )}
             {toast.type === "error" && (
-              <AlertCircle className="w-5 h-5 text-rose-600" />
+              <AlertCircle className="w-5 h-5 text-rose-400" />
             )}
             {toast.type === "info" && (
-              <Info className="w-5 h-5 text-indigo-600" />
+              <Info className="w-5 h-5 text-amber-300" />
             )}
           </div>
 
-          <div className="flex-1 text-sm font-medium leading-relaxed">
+          <div className="flex-1 text-sm font-semibold leading-relaxed">
             {toast.message}
           </div>
 
           <button
             onClick={() => removeToast(toast.id)}
-            className="text-slate-400 hover:text-slate-600 p-0.5 rounded transition"
+            className="text-slate-400 hover:text-white p-1 rounded-lg transition"
             aria-label="Close notification"
           >
             <X className="w-4 h-4" />

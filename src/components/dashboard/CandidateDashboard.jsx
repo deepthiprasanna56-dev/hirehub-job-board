@@ -8,7 +8,10 @@ import {
   CheckCircle2, 
   Clock, 
   Bookmark, 
-  Edit3
+  Edit3,
+  Crown,
+  Sparkles,
+  ShieldCheck
 } from "lucide-react";
 import { useJobs } from "../../context/JobContext";
 import JobCard from "../jobs/JobCard";
@@ -42,7 +45,6 @@ export default function CandidateDashboard() {
     setActiveTab("applied");
   };
 
-  // Find job objects for applied records
   const appliedJobsList = appliedJobs.map((app) => {
     const jobInfo = jobs.find((j) => j.id === app.jobId) || {
       title: "Software Engineer",
@@ -58,60 +60,62 @@ export default function CandidateDashboard() {
   const getStatusBadge = (status) => {
     switch (status) {
       case "Under Review":
-        return "bg-amber-50 text-amber-700 border-amber-200";
+        return "bg-amber-400/10 text-amber-300 border-amber-400/30";
       case "Interview Scheduled":
-        return "bg-purple-50 text-purple-700 border-purple-200";
+        return "bg-purple-500/10 text-purple-300 border-purple-500/30";
       case "Offer Extended":
-        return "bg-emerald-50 text-emerald-700 border-emerald-200";
+        return "bg-emerald-500/15 text-emerald-300 border-emerald-500/30";
       default:
-        return "bg-blue-50 text-blue-700 border-blue-200";
+        return "bg-blue-500/10 text-blue-300 border-blue-500/30";
     }
   };
 
   return (
-    <div className="py-10 bg-slate-50 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <div className="py-14 bg-slate-950 min-h-screen text-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Candidate Profile Header Card */}
-        <div className="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-xs relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-indigo-500/10 via-purple-500/5 to-transparent rounded-bl-full pointer-events-none"></div>
+        <div className="bg-slate-900/80 rounded-3xl border border-amber-500/30 p-8 sm:p-10 shadow-2xl relative overflow-hidden backdrop-blur-2xl gold-glow">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/10 via-purple-500/5 to-transparent rounded-bl-full pointer-events-none"></div>
 
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-5">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
               <div className="relative">
                 <img
                   src={user?.avatar || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"}
                   alt={user?.name}
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl object-cover ring-4 ring-indigo-500/20 shadow-md"
+                  className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl object-cover ring-4 ring-amber-400/50 shadow-2xl"
                 />
-                <span className="absolute bottom-0 right-0 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full" title="Active Candidate"></span>
+                <span className="absolute bottom-0 right-0 w-6 h-6 bg-amber-400 border-2 border-slate-950 rounded-full flex items-center justify-center text-slate-950" title="Verified Talent">
+                  <Crown className="w-3.5 h-3.5" />
+                </span>
               </div>
 
               <div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <h1 className="text-2xl sm:text-3xl font-black text-slate-900">
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <h1 className="text-2xl sm:text-4xl font-black text-white">
                     {user?.name || "Bademala Nikhil"}
                   </h1>
-                  <span className="text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-2.5 py-0.5 rounded-full">
-                    {user?.role || "Candidate"}
+                  <span className="text-xs font-black uppercase tracking-wider text-amber-300 bg-amber-400/15 border border-amber-400/30 px-3 py-1 rounded-full flex items-center gap-1">
+                    <Sparkles className="w-3 h-3" /> Verified Candidate
                   </span>
                 </div>
 
-                <p className="text-sm sm:text-base font-semibold text-slate-600 mt-1">
+                <p className="text-base sm:text-lg font-bold text-gold-gradient mt-1">
                   {user?.title || "Senior Frontend Developer"}
                 </p>
 
-                <div className="flex flex-wrap items-center gap-y-1 gap-x-4 text-xs text-slate-500 mt-2.5">
-                  <span className="flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                <div className="flex flex-wrap items-center gap-y-1 gap-x-5 text-xs text-slate-400 mt-3 font-light">
+                  <span className="flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-amber-400" />
                     {user?.location || "Hyderabad / Bangalore, India"}
                   </span>
-                  <span className="flex items-center gap-1">
-                    <Mail className="w-3.5 h-3.5 text-slate-400" />
+                  <span className="flex items-center gap-1.5">
+                    <Mail className="w-3.5 h-3.5 text-amber-400" />
                     {user?.email || "nikhil@hirehub.dev"}
                   </span>
-                  <span className="flex items-center gap-1">
-                    <Phone className="w-3.5 h-3.5 text-slate-400" />
+                  <span className="flex items-center gap-1.5">
+                    <Phone className="w-3.5 h-3.5 text-amber-400" />
                     {user?.phone || "+91 98765 43210"}
                   </span>
                 </div>
@@ -123,9 +127,9 @@ export default function CandidateDashboard() {
                 onClick={() => {
                   setActiveTab("settings");
                 }}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm shadow-xs transition"
+                className="flex items-center gap-2 px-6 py-3 rounded-2xl border border-white/10 bg-slate-950 hover:bg-white/5 text-slate-200 font-bold text-sm shadow-md transition"
               >
-                <Edit3 className="w-4 h-4 text-slate-500" />
+                <Edit3 className="w-4 h-4 text-amber-400" />
                 Edit Profile
               </button>
 
@@ -134,7 +138,7 @@ export default function CandidateDashboard() {
                   setCurrentView("jobs");
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md shadow-indigo-600/20 transition"
+                className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/20 transition transform hover:-translate-y-0.5"
               >
                 <Briefcase className="w-4 h-4" />
                 Explore Roles
@@ -143,16 +147,16 @@ export default function CandidateDashboard() {
           </div>
 
           {/* Bio & Skills Preview */}
-          <div className="mt-6 pt-6 border-t border-slate-100 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          <div className="mt-8 pt-8 border-t border-white/10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-8">
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
                 {user?.bio}
               </p>
               
-              <div className="flex flex-wrap items-center gap-1.5 mt-3">
-                <span className="text-xs font-bold text-slate-400 mr-1">Skills:</span>
+              <div className="flex flex-wrap items-center gap-2 mt-4">
+                <span className="text-xs font-bold text-slate-500 mr-1">Skills:</span>
                 {(user?.skills || ["React", "JavaScript", "Tailwind CSS", "TypeScript"]).map((s) => (
-                  <span key={s} className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-semibold">
+                  <span key={s} className="px-3 py-1 rounded-xl bg-slate-950 text-slate-200 text-xs font-semibold border border-white/10">
                     {s}
                   </span>
                 ))}
@@ -160,11 +164,11 @@ export default function CandidateDashboard() {
             </div>
 
             <div className="md:col-span-4 flex items-center justify-end">
-              <div className="flex items-center gap-3 p-3 bg-indigo-50/60 rounded-2xl border border-indigo-100 w-full sm:w-auto">
-                <FileText className="w-6 h-6 text-indigo-600 shrink-0" />
+              <div className="flex items-center gap-3.5 p-3.5 bg-slate-950 rounded-2xl border border-amber-400/30 w-full sm:w-auto">
+                <FileText className="w-7 h-7 text-amber-400 shrink-0" />
                 <div className="text-left text-xs">
-                  <p className="font-bold text-slate-800 truncate max-w-[160px]">{user?.resumeName || "Resume.pdf"}</p>
-                  <p className="text-indigo-600 font-semibold cursor-pointer hover:underline">Download / View</p>
+                  <p className="font-bold text-white truncate max-w-[160px]">{user?.resumeName || "Resume.pdf"}</p>
+                  <p className="text-amber-400 font-semibold cursor-pointer hover:underline">Attached Dossier</p>
                 </div>
               </div>
             </div>
@@ -174,53 +178,53 @@ export default function CandidateDashboard() {
 
         {/* Dashboard Metrics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
-            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Total Applied</p>
-            <p className="text-2xl sm:text-3xl font-black text-indigo-600 mt-1">{appliedJobs.length}</p>
-            <p className="text-xs text-slate-500 mt-1">Applications tracked</p>
+          <div className="bg-slate-900/70 p-6 rounded-3xl border border-white/10 backdrop-blur-xl">
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-400">Total Applied</p>
+            <p className="text-3xl font-black text-white mt-1">{appliedJobs.length}</p>
+            <p className="text-xs text-slate-500 mt-1">Active Mandates</p>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
-            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Under Review</p>
-            <p className="text-2xl sm:text-3xl font-black text-amber-600 mt-1">
+          <div className="bg-slate-900/70 p-6 rounded-3xl border border-white/10 backdrop-blur-xl">
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-400">Under Review</p>
+            <p className="text-3xl font-black text-amber-400 mt-1">
               {appliedJobs.filter((a) => a.status === "Under Review" || a.status === "Applied").length}
             </p>
-            <p className="text-xs text-slate-500 mt-1">Recruiter evaluations</p>
+            <p className="text-xs text-slate-500 mt-1">Recruiter Evaluation</p>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
-            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Interviews</p>
-            <p className="text-2xl sm:text-3xl font-black text-emerald-600 mt-1">1</p>
-            <p className="text-xs text-slate-500 mt-1">Upcoming chats</p>
+          <div className="bg-slate-900/70 p-6 rounded-3xl border border-white/10 backdrop-blur-xl">
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-400">Interviews</p>
+            <p className="text-3xl font-black text-gold-gradient mt-1">1</p>
+            <p className="text-xs text-slate-500 mt-1">Upcoming Meeting</p>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
-            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Saved Wishlist</p>
-            <p className="text-2xl sm:text-3xl font-black text-violet-600 mt-1">{savedJobIds.length}</p>
-            <p className="text-xs text-slate-500 mt-1">Bookmarked positions</p>
+          <div className="bg-slate-900/70 p-6 rounded-3xl border border-white/10 backdrop-blur-xl">
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-400">Saved Wishlist</p>
+            <p className="text-3xl font-black text-white mt-1">{savedJobIds.length}</p>
+            <p className="text-xs text-slate-500 mt-1">Curated Benchmarks</p>
           </div>
         </div>
 
         {/* Dashboard Navigation Tabs */}
-        <div className="flex border-b border-slate-200 gap-4 sm:gap-8">
+        <div className="flex border-b border-white/10 gap-6 sm:gap-10">
           <button
             onClick={() => setActiveTab("applied")}
-            className={`pb-3 text-sm sm:text-base font-extrabold transition-all border-b-2 flex items-center gap-2 ${
+            className={`pb-4 text-sm sm:text-base font-black transition-all border-b-2 flex items-center gap-2 ${
               activeTab === "applied"
-                ? "border-indigo-600 text-indigo-600"
-                : "border-transparent text-slate-500 hover:text-slate-800"
+                ? "border-amber-400 text-amber-300"
+                : "border-transparent text-slate-400 hover:text-white"
             }`}
           >
             <CheckCircle2 className="w-4 h-4" />
-            Applied Roles ({appliedJobs.length})
+            Applied Mandates ({appliedJobs.length})
           </button>
 
           <button
             onClick={() => setActiveTab("saved")}
-            className={`pb-3 text-sm sm:text-base font-extrabold transition-all border-b-2 flex items-center gap-2 ${
+            className={`pb-4 text-sm sm:text-base font-black transition-all border-b-2 flex items-center gap-2 ${
               activeTab === "saved"
-                ? "border-indigo-600 text-indigo-600"
-                : "border-transparent text-slate-500 hover:text-slate-800"
+                ? "border-amber-400 text-amber-300"
+                : "border-transparent text-slate-400 hover:text-white"
             }`}
           >
             <Bookmark className="w-4 h-4" />
@@ -229,10 +233,10 @@ export default function CandidateDashboard() {
 
           <button
             onClick={() => setActiveTab("settings")}
-            className={`pb-3 text-sm sm:text-base font-extrabold transition-all border-b-2 flex items-center gap-2 ${
+            className={`pb-4 text-sm sm:text-base font-black transition-all border-b-2 flex items-center gap-2 ${
               activeTab === "settings"
-                ? "border-indigo-600 text-indigo-600"
-                : "border-transparent text-slate-500 hover:text-slate-800"
+                ? "border-amber-400 text-amber-300"
+                : "border-transparent text-slate-400 hover:text-white"
             }`}
           >
             <Edit3 className="w-4 h-4" />
@@ -244,55 +248,55 @@ export default function CandidateDashboard() {
         {activeTab === "applied" && (
           <div className="space-y-4">
             {appliedJobsList.length === 0 ? (
-              <div className="bg-white rounded-3xl border border-slate-200/90 p-12 text-center">
-                <p className="text-slate-600 font-medium">You haven't submitted any applications yet.</p>
+              <div className="bg-slate-900/60 rounded-3xl border border-white/10 p-14 text-center">
+                <p className="text-slate-400 font-light">You have not submitted applications yet.</p>
                 <button
                   onClick={() => setCurrentView("jobs")}
-                  className="mt-4 px-6 py-2.5 bg-indigo-600 text-white rounded-xl font-bold text-sm"
+                  className="mt-4 px-7 py-3 bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 rounded-2xl font-black text-sm"
                 >
-                  Find Jobs to Apply
+                  Explore Executive Appointments
                 </button>
               </div>
             ) : (
               appliedJobsList.map((app) => (
                 <div
                   key={app.jobId}
-                  className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                  className="bg-slate-900/80 rounded-3xl border border-white/10 p-6 sm:p-7 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-5 backdrop-blur-xl"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-slate-100 overflow-hidden shrink-0 flex items-center justify-center p-1">
+                    <div className="w-14 h-14 rounded-2xl bg-slate-950 overflow-hidden shrink-0 flex items-center justify-center p-1.5 border border-white/10">
                       <img
                         src={app.jobInfo.companyLogo || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=80"}
                         alt={app.jobInfo.company}
-                        className="w-full h-full object-cover rounded-lg"
+                        className="w-full h-full object-cover rounded-xl"
                       />
                     </div>
                     <div>
                       <h3
                         onClick={() => openJobDetails(app.jobInfo)}
-                        className="text-base sm:text-lg font-bold text-slate-900 hover:text-indigo-600 cursor-pointer transition"
+                        className="text-base sm:text-xl font-bold text-white hover:text-amber-300 cursor-pointer transition"
                       >
                         {app.jobInfo.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 font-medium">
+                      <p className="text-xs sm:text-sm text-slate-400 font-medium mt-0.5">
                         {app.jobInfo.company} • {app.jobInfo.location}
                       </p>
-                      <p className="text-xs text-slate-400 mt-1 flex items-center gap-1">
-                        <Clock className="w-3 h-3" /> Applied {app.appliedAt}
+                      <p className="text-xs text-slate-500 mt-1.5 flex items-center gap-1 font-light">
+                        <Clock className="w-3 h-3 text-amber-400/80" /> Submitted {app.appliedAt}
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3 self-end sm:self-auto">
-                    <span className={`px-3 py-1 rounded-full text-xs font-bold border ${getStatusBadge(app.status)}`}>
+                    <span className={`px-4 py-1.5 rounded-full text-xs font-bold border ${getStatusBadge(app.status)}`}>
                       {app.status}
                     </span>
 
                     <button
                       onClick={() => openJobDetails(app.jobInfo)}
-                      className="px-4 py-2 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition"
+                      className="px-5 py-2.5 rounded-xl border border-white/10 text-xs font-bold text-slate-300 hover:text-white hover:bg-white/5 transition"
                     >
-                      View Details
+                      Dossier
                     </button>
                   </div>
                 </div>
@@ -305,13 +309,13 @@ export default function CandidateDashboard() {
         {activeTab === "saved" && (
           <div>
             {savedJobs.length === 0 ? (
-              <div className="bg-white rounded-3xl border border-slate-200/90 p-12 text-center">
-                <p className="text-slate-600 font-medium">No saved jobs found in your wishlist.</p>
+              <div className="bg-slate-900/60 rounded-3xl border border-white/10 p-14 text-center">
+                <p className="text-slate-400 font-light">No saved roles found in your wishlist.</p>
                 <button
                   onClick={() => setCurrentView("jobs")}
-                  className="mt-4 px-6 py-2.5 bg-indigo-600 text-white rounded-xl font-bold text-sm"
+                  className="mt-4 px-7 py-3 bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 rounded-2xl font-black text-sm"
                 >
-                  Browse Jobs
+                  Browse Roles
                 </button>
               </div>
             ) : (
@@ -326,95 +330,95 @@ export default function CandidateDashboard() {
 
         {/* Tab Content 3: Profile Settings Form */}
         {activeTab === "settings" && (
-          <div className="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-xs max-w-3xl">
-            <h2 className="text-xl font-black text-slate-900 mb-6">Edit Candidate Profile</h2>
+          <div className="bg-slate-900/80 rounded-3xl border border-white/10 p-8 sm:p-10 shadow-2xl max-w-3xl backdrop-blur-2xl">
+            <h2 className="text-2xl font-black text-white mb-6">Edit Executive Profile</h2>
 
-            <form onSubmit={handleProfileSave} className="space-y-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form onSubmit={handleProfileSave} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Full Name</label>
+                  <label className="block text-[11px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Full Name</label>
                   <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-400"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Professional Title</label>
+                  <label className="block text-[11px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Executive Title</label>
                   <input
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-400"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Email</label>
+                  <label className="block text-[11px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Email</label>
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-400"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Phone</label>
+                  <label className="block text-[11px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Phone</label>
                   <input
                     type="text"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-400"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Location</label>
+                <label className="block text-[11px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Location</label>
                 <input
                   type="text"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-400"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Portfolio or GitHub URL</label>
+                <label className="block text-[11px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Portfolio or GitHub URL</label>
                 <input
                   type="url"
                   value={portfolioUrl}
                   onChange={(e) => setPortfolioUrl(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-400"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Candidate Bio</label>
+                <label className="block text-[11px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Executive Bio</label>
                 <textarea
                   rows={3}
                   value={bio}
                   onChange={(e) => setBio(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-500 resize-none"
+                  className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-400 resize-none"
                 ></textarea>
               </div>
 
-              <div className="pt-3 flex justify-end gap-3">
+              <div className="pt-4 flex justify-end gap-3">
                 <button
                   type="button"
                   onClick={() => setActiveTab("applied")}
-                  className="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-bold text-sm hover:bg-slate-50"
+                  className="px-6 py-3 rounded-2xl border border-white/10 text-slate-400 font-bold text-sm hover:text-white"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-sm shadow-md"
+                  className="px-7 py-3 bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black rounded-2xl text-sm shadow-lg shadow-amber-500/20"
                 >
-                  Save Profile Changes
+                  Save Changes
                 </button>
               </div>
             </form>

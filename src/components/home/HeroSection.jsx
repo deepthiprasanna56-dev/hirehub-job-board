@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, MapPin, ArrowRight, TrendingUp, Sparkles } from "lucide-react";
+import { Search, MapPin, ArrowRight, TrendingUp, Sparkles, ShieldCheck, Award } from "lucide-react";
 import { useJobs } from "../../context/JobContext";
 
 export default function HeroSection() {
@@ -30,108 +30,109 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden pt-12 pb-20 md:py-24 bg-gradient-to-b from-indigo-50/60 via-white to-slate-50">
-      {/* Decorative Blur Spheres */}
-      <div className="absolute top-1/4 -left-20 w-80 h-80 bg-indigo-400/15 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute top-10 right-0 w-96 h-96 bg-purple-400/15 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none"></div>
+    <section className="relative overflow-hidden pt-16 pb-24 md:py-28 bg-gradient-to-b from-slate-950 via-[#070b14] to-slate-950">
+      
+      {/* Luxury Ambient Glow Spheres */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-10 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute bottom-10 left-1/3 w-80 h-80 bg-amber-400/5 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Top Announcement Badge */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100/80 border border-indigo-200 text-indigo-700 text-xs sm:text-sm font-semibold shadow-sm hover:bg-indigo-100 transition cursor-pointer">
-            <span className="flex h-2 w-2 rounded-full bg-indigo-600 animate-ping"></span>
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Over 1,200+ new verified roles added this week</span>
-            <ArrowRight className="w-3 h-3 ml-0.5" />
+        {/* Top VIP Announcement Badge */}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-slate-900/90 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold shadow-xl backdrop-blur-xl hover:border-amber-400/60 transition cursor-pointer">
+            <span className="flex h-2 w-2 rounded-full bg-amber-400 animate-ping"></span>
+            <Sparkles className="w-4 h-4 text-amber-400" />
+            <span className="tracking-wide">Exclusive Opportunities for Visionary Minds</span>
+            <ArrowRight className="w-3.5 h-3.5 ml-1 text-amber-400" />
           </div>
         </div>
 
-        {/* Hero Heading & Subtitle */}
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12]">
-            Discover Your Next{" "}
-            <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-700 bg-clip-text text-transparent">
-              Dream Career
+        {/* Hero Editorial Heading */}
+        <div className="text-center max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08]">
+            Where Elite Leaders &{" "}
+            <span className="text-gold-gradient font-extrabold">
+              World-Class Talent
             </span>{" "}
-            Opportunity
+            Converge
           </h1>
-          <p className="mt-5 text-base sm:text-lg lg:text-xl text-slate-600 font-normal leading-relaxed">
-            Connect with top technology brands and innovative scale-ups. Search thousands of remote, hybrid, and onsite jobs tailored to your skills.
+          <p className="mt-6 text-base sm:text-lg lg:text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
+            A discreet, curated career destination connecting exceptional tech, design, product, and finance leaders with industry-defining organizations.
           </p>
         </div>
 
-        {/* Central Search Form Box */}
-        <div className="mt-10 max-w-4xl mx-auto">
+        {/* Luxury Obsidian Search Form */}
+        <div className="mt-12 max-w-4xl mx-auto">
           <form 
             onSubmit={handleSearchSubmit}
-            className="p-3 sm:p-4 bg-white rounded-3xl shadow-2xl shadow-indigo-500/10 border border-slate-200/90 backdrop-blur-xl"
+            className="p-3 sm:p-4 bg-slate-900/80 rounded-3xl shadow-2xl border border-amber-500/25 backdrop-blur-2xl gold-glow"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
               
-              {/* Job title / keyword input */}
-              <div className="md:col-span-5 flex items-center gap-3 px-4 py-3 bg-slate-50/80 hover:bg-slate-50 rounded-2xl border border-slate-200/60 focus-within:border-indigo-500 focus-within:bg-white focus-within:ring-2 focus-within:ring-indigo-500/20 transition">
-                <Search className="w-5 h-5 text-indigo-600 shrink-0" />
+              {/* Keyword / Role input */}
+              <div className="md:col-span-5 flex items-center gap-3.5 px-4 py-3.5 bg-slate-950/70 hover:bg-slate-950 rounded-2xl border border-white/10 focus-within:border-amber-400/80 focus-within:ring-2 focus-within:ring-amber-500/20 transition">
+                <Search className="w-5 h-5 text-amber-400 shrink-0" />
                 <div className="w-full">
-                  <label htmlFor="hero-keyword" className="block text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                    What role?
+                  <label htmlFor="hero-keyword" className="block text-[10px] font-black uppercase tracking-widest text-slate-400">
+                    Target Role / Discipline
                   </label>
                   <input
                     id="hero-keyword"
                     type="text"
                     value={localKeyword}
                     onChange={(e) => setLocalKeyword(e.target.value)}
-                    placeholder="Job title, skills (e.g. React, UX)"
-                    className="w-full bg-transparent text-slate-800 placeholder-slate-400 text-sm font-semibold focus:outline-none"
+                    placeholder="e.g. Lead Architect, VP Design, React"
+                    className="w-full bg-transparent text-white placeholder-slate-500 text-sm font-semibold focus:outline-none"
                   />
                 </div>
               </div>
 
               {/* Location input */}
-              <div className="md:col-span-4 flex items-center gap-3 px-4 py-3 bg-slate-50/80 hover:bg-slate-50 rounded-2xl border border-slate-200/60 focus-within:border-indigo-500 focus-within:bg-white focus-within:ring-2 focus-within:ring-indigo-500/20 transition">
-                <MapPin className="w-5 h-5 text-emerald-600 shrink-0" />
+              <div className="md:col-span-4 flex items-center gap-3.5 px-4 py-3.5 bg-slate-950/70 hover:bg-slate-950 rounded-2xl border border-white/10 focus-within:border-amber-400/80 focus-within:ring-2 focus-within:ring-amber-500/20 transition">
+                <MapPin className="w-5 h-5 text-amber-400 shrink-0" />
                 <div className="w-full">
-                  <label htmlFor="hero-location" className="block text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                    Where?
+                  <label htmlFor="hero-location" className="block text-[10px] font-black uppercase tracking-widest text-slate-400">
+                    Location Preference
                   </label>
                   <input
                     id="hero-location"
                     type="text"
                     value={localLocation}
                     onChange={(e) => setLocalLocation(e.target.value)}
-                    placeholder="City, Remote, or Country"
-                    className="w-full bg-transparent text-slate-800 placeholder-slate-400 text-sm font-semibold focus:outline-none"
+                    placeholder="Global Remote, London, SF"
+                    className="w-full bg-transparent text-white placeholder-slate-500 text-sm font-semibold focus:outline-none"
                   />
                 </div>
               </div>
 
-              {/* Submit Button */}
+              {/* Luxury Gold Submit Button */}
               <div className="md:col-span-3">
                 <button
                   type="submit"
-                  className="w-full py-4 px-6 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-extrabold rounded-2xl shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-base"
+                  className="w-full py-4 px-6 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black rounded-2xl shadow-xl shadow-amber-500/20 hover:shadow-amber-500/40 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-base"
                 >
-                  <Search className="w-5 h-5" />
-                  Search Jobs
+                  <Search className="w-5 h-5 stroke-[2.5]" />
+                  Explore Roles
                 </button>
               </div>
 
             </div>
           </form>
 
-          {/* Quick Filter Tags */}
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-500">
-            <span className="font-semibold text-slate-700 flex items-center gap-1">
-              <TrendingUp className="w-3.5 h-3.5 text-indigo-600" />
-              Popular Searches:
+          {/* Quick Luxury Search Pills */}
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-400">
+            <span className="font-semibold text-amber-300/90 flex items-center gap-1.5 mr-1">
+              <TrendingUp className="w-3.5 h-3.5 text-amber-400" />
+              Prestige Searches:
             </span>
-            {["React", "Remote", "Python", "UI/UX", "Full-time", "Senior Engineer", "Product Manager"].map((tag) => (
+            {["Lead Full Stack", "Remote VIP", "AI Research", "Product VP", "Fintech Executive", "$150k+"].map((tag) => (
               <button
                 key={tag}
                 type="button"
                 onClick={() => handleQuickTagClick(tag)}
-                className="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50/50 font-medium transition shadow-2xs"
+                className="px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-white/10 text-slate-300 hover:border-amber-400/50 hover:text-amber-300 font-medium transition backdrop-blur-md"
               >
                 {tag}
               </button>
@@ -139,23 +140,38 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Live Metrics Grid */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-          <div className="p-4 sm:p-5 bg-white/80 rounded-2xl border border-slate-200/80 shadow-xs text-center">
-            <p className="text-2xl sm:text-3xl font-black text-indigo-600">15,400+</p>
-            <p className="text-xs sm:text-sm font-medium text-slate-600 mt-1">Live Open Positions</p>
+        {/* Luxury Prestige Metrics Grid */}
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div className="p-6 bg-slate-900/60 rounded-3xl border border-white/10 backdrop-blur-xl text-center group hover:border-amber-500/30 transition">
+            <p className="text-3xl sm:text-4xl font-black text-gold-gradient">$165K+</p>
+            <p className="text-xs sm:text-sm font-medium text-slate-400 mt-1">Average Compensation</p>
           </div>
-          <div className="p-4 sm:p-5 bg-white/80 rounded-2xl border border-slate-200/80 shadow-xs text-center">
-            <p className="text-2xl sm:text-3xl font-black text-violet-600">850+</p>
-            <p className="text-xs sm:text-sm font-medium text-slate-600 mt-1">Verified Companies</p>
+          <div className="p-6 bg-slate-900/60 rounded-3xl border border-white/10 backdrop-blur-xl text-center group hover:border-amber-500/30 transition">
+            <p className="text-3xl sm:text-4xl font-black text-white">850+</p>
+            <p className="text-xs sm:text-sm font-medium text-slate-400 mt-1">Verified Enterprises</p>
           </div>
-          <div className="p-4 sm:p-5 bg-white/80 rounded-2xl border border-slate-200/80 shadow-xs text-center">
-            <p className="text-2xl sm:text-3xl font-black text-emerald-600">98%</p>
-            <p className="text-xs sm:text-sm font-medium text-slate-600 mt-1">Candidate Satisfaction</p>
+          <div className="p-6 bg-slate-900/60 rounded-3xl border border-white/10 backdrop-blur-xl text-center group hover:border-amber-500/30 transition">
+            <p className="text-3xl sm:text-4xl font-black text-gold-gradient">99.2%</p>
+            <p className="text-xs sm:text-sm font-medium text-slate-400 mt-1">Executive Match Rate</p>
           </div>
-          <div className="p-4 sm:p-5 bg-white/80 rounded-2xl border border-slate-200/80 shadow-xs text-center">
-            <p className="text-2xl sm:text-3xl font-black text-amber-600">&lt; 48 Hrs</p>
-            <p className="text-xs sm:text-sm font-medium text-slate-600 mt-1">Average Response Rate</p>
+          <div className="p-6 bg-slate-900/60 rounded-3xl border border-white/10 backdrop-blur-xl text-center group hover:border-amber-500/30 transition">
+            <p className="text-3xl sm:text-4xl font-black text-white">&lt; 24 Hrs</p>
+            <p className="text-xs sm:text-sm font-medium text-slate-400 mt-1">Direct Recruiter Outreach</p>
+          </div>
+        </div>
+
+        {/* Corporate Trust Badge Strip */}
+        <div className="mt-16 pt-10 border-t border-white/10 text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-6 flex items-center justify-center gap-2">
+            <Award className="w-4 h-4 text-amber-400" />
+            Trusted by Leaders at Frontier Technologies & Global Scale-ups
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
+            <span className="text-lg font-black tracking-wider text-slate-300">TECHFLOW</span>
+            <span className="text-lg font-black tracking-wider text-slate-300">INNOVATESTUDIO</span>
+            <span className="text-lg font-black tracking-wider text-slate-300">DATASTRIDE</span>
+            <span className="text-lg font-black tracking-wider text-slate-300">FINPULSE</span>
+            <span className="text-lg font-black tracking-wider text-slate-300">APEXGUARD</span>
           </div>
         </div>
 
