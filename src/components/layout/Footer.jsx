@@ -228,13 +228,13 @@ export default function Footer() {
           <div className="flex items-center gap-2">
             <span>Executive Platform developed for</span>
             <span className="font-bold text-amber-300 bg-amber-400/10 px-3 py-1 rounded-lg border border-amber-400/30">
-              Bademala Nikhil
+              Deepthi Assistant
             </span>
             <a
-              href="mailto:nikhil@hirehub.dev"
+              href="mailto:deepthi@hirehub.dev"
               className="text-slate-400 hover:text-amber-300 transition"
             >
-              nikhil@hirehub.dev
+              deepthi@hirehub.dev
             </a>
           </div>
         </div>

@@ -12,12 +12,12 @@ import { useJobs } from "../../context/JobContext";
 export default function ApplyModal() {
   const { selectedJob, isApplyModalOpen, closeApplyModal, user, applyToJob, addToast } = useJobs();
 
-  const [fullName, setFullName] = useState(user?.name || "Bademala Nikhil");
-  const [email, setEmail] = useState(user?.email || "nikhil@hirehub.dev");
-  const [phone, setPhone] = useState(user?.phone || "+91 98765 43210");
-  const [portfolio, setPortfolio] = useState(user?.portfolioUrl || "https://github.com/bademalanikhil");
+  const [fullName, setFullName] = useState(user?.name || "Deepthi Assistant");
+  const [email, setEmail] = useState(user?.email || "deepthi@hirehub.dev");
+  const [phone, setPhone] = useState(user?.phone || "+1 (415) 555-0101");
+  const [portfolio, setPortfolio] = useState(user?.portfolioUrl || "https://github.com/microsoft/copilot");
   const [coverNote, setCoverNote] = useState("");
-  const [resumeFile, setResumeFile] = useState({ name: user?.resumeName || "Bademala_Nikhil_Executive_Resume.pdf", size: "1.8 MB" });
+  const [resumeFile, setResumeFile] = useState({ name: user?.resumeName || "Deepthi_Assistant_Executive_Resume.pdf", size: "1.8 MB" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -133,7 +133,7 @@ export default function ApplyModal() {
                   required
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  placeholder="e.g. Bademala Nikhil"
+                  placeholder="e.g. Deepthi Assistant"
                   className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-500/20"
                 />
               </div>

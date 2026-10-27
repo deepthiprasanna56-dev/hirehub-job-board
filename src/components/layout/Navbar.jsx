@@ -54,26 +54,26 @@ export default function Navbar() {
             onClick={() => handleNavClick("home")}
             className="flex items-center gap-3 cursor-pointer group"
           >
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-yellow-600 flex items-center justify-center text-slate-950 shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform border border-amber-300/40">
+            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform border border-blue-300/40">
               <Crown className="w-6 h-6 stroke-[2.3]" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xl sm:text-2xl font-black tracking-wider text-white font-display">
-                  HIREHUB <span className="text-gold-gradient">ELITE</span>
+                <span className="text-xl sm:text-2xl font-black tracking-wider text-white">
+                  HIREHUB <span className="text-blue-300">ELITE</span>
                 </span>
-                <span className="hidden sm:inline-flex text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full bg-amber-400/10 text-amber-300 border border-amber-400/30">
-                  PRIVATE PLACEMENT
+                <span className="hidden sm:inline-flex text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-300 border border-blue-400/30">
+                  JOB PORTAL
                 </span>
               </div>
               <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400 block -mt-0.5">
-                Executive & Tech Retainers
+                Careers • Talent • Hiring
               </span>
             </div>
           </div>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+          <nav className="hidden lg:flex items-center gap-1 lg:gap-2">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentView === item.id;
@@ -83,11 +83,11 @@ export default function Navbar() {
                   onClick={() => handleNavClick(item.id)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
                     isActive
-                      ? "text-amber-300 bg-amber-500/10 border border-amber-500/20 shadow-xs"
+                      ? "text-blue-300 bg-blue-500/10 border border-blue-500/20 shadow-xs"
                       : "text-slate-300 hover:text-white hover:bg-white/5 border border-transparent"
                   }`}
                 >
-                  <Icon className={`w-4 h-4 ${isActive ? "text-amber-400" : "text-slate-400"}`} />
+                  <Icon className={`w-4 h-4 ${isActive ? "text-blue-400" : "text-slate-400"}`} />
                   {item.label}
                 </button>
               );
@@ -95,14 +95,14 @@ export default function Navbar() {
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             {/* Saved Jobs Icon Button */}
             <button
               onClick={() => handleNavClick("saved")}
               title="Saved Wishlist"
               className={`relative p-2.5 rounded-xl border transition-all ${
                 currentView === "saved"
-                  ? "bg-amber-500/15 text-amber-300 border-amber-500/40"
+                  ? "bg-blue-500/15 text-blue-300 border-blue-500/40"
                   : "bg-slate-900/80 text-slate-400 border-white/10 hover:text-white hover:border-white/20"
               }`}
             >
@@ -119,19 +119,19 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                  className="flex items-center gap-2.5 p-1.5 pr-3.5 rounded-full border border-amber-500/30 bg-slate-900/90 hover:bg-slate-800 transition shadow-lg hover:border-amber-400/60"
+                  className="flex items-center gap-2.5 p-1.5 pr-3.5 rounded-full border border-blue-500/30 bg-slate-900/90 hover:bg-slate-800 transition shadow-lg hover:border-blue-400/60"
                 >
                   <div className="relative">
                     <img
                       src={user.avatar}
                       alt={user.name}
-                      className="w-8 h-8 rounded-full object-cover ring-2 ring-amber-400/50"
+                      className="w-8 h-8 rounded-full object-cover ring-2 ring-blue-400/50"
                     />
-                    <Sparkles className="w-3 h-3 text-amber-400 absolute -top-1 -right-1" />
+                    <Sparkles className="w-3 h-3 text-blue-400 absolute -top-1 -right-1" />
                   </div>
                   <div className="text-left text-xs leading-tight">
                     <p className="font-bold text-white line-clamp-1">{user.name}</p>
-                    <p className="text-[10px] text-amber-300/90 font-medium">Verified Talent</p>
+                    <p className="text-[10px] text-blue-300/90 font-medium">Verified Talent</p>
                   </div>
                   <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${userDropdownOpen ? "rotate-180" : ""}`} />
                 </button>
@@ -142,7 +142,7 @@ export default function Navbar() {
                     <div className="px-4 py-2.5 border-b border-white/10">
                       <div className="flex items-center gap-1.5">
                         <p className="text-sm font-bold text-white truncate">{user.name}</p>
-                        <Crown className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                        <Crown className="w-3.5 h-3.5 text-blue-400 shrink-0" />
                       </div>
                       <p className="text-xs text-slate-400 truncate">{user.email}</p>
                     </div>
@@ -205,7 +205,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Hamburger Button */}
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={() => handleNavClick("saved")}
               className="p-2 rounded-lg text-slate-300 hover:bg-white/5 relative"
@@ -232,7 +232,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-white/10 bg-slate-950 px-4 pt-3 pb-6 shadow-2xl">
+        <div className="lg:hidden border-t border-white/10 bg-slate-950 px-4 pt-3 pb-6 shadow-2xl">
           <div className="flex flex-col gap-1 mb-4">
             {navItems.map((item) => {
               const Icon = item.icon;

@@ -21,15 +21,15 @@ export default function CandidateDashboard() {
   const [activeTab, setActiveTab] = useState("applied"); // 'applied' | 'saved' | 'settings'
 
   // Edit profile state
-  const [name, setName] = useState(user?.name || "Bademala Nikhil");
+  const [name, setName] = useState(user?.name || "Deepthi Assistant");
   const [title, setTitle] = useState(user?.title || "Senior Frontend Developer");
-  const [email, setEmail] = useState(user?.email || "nikhil@hirehub.dev");
-  const [phone, setPhone] = useState(user?.phone || "+91 98765 43210");
-  const [location, setLocation] = useState(user?.location || "Hyderabad / Bangalore, India");
+  const [email, setEmail] = useState(user?.email || "deepthi@hirehub.dev");
+  const [phone, setPhone] = useState(user?.phone || "+1 (415) 555-0101");
+  const [location, setLocation] = useState(user?.location || "Seattle / Remote, USA");
   const [bio, setBio] = useState(
     user?.bio || "Passionate frontend developer crafting responsive, pixel-perfect web applications with React, Tailwind CSS, and modern web architectures."
   );
-  const [portfolioUrl, setPortfolioUrl] = useState(user?.portfolioUrl || "https://github.com/bademalanikhil");
+  const [portfolioUrl, setPortfolioUrl] = useState(user?.portfolioUrl || "https://github.com/microsoft/copilot");
 
   const handleProfileSave = (e) => {
     e.preventDefault();
@@ -94,7 +94,7 @@ export default function CandidateDashboard() {
               <div>
                 <div className="flex flex-wrap items-center gap-2.5">
                   <h1 className="text-2xl sm:text-4xl font-black text-white">
-                    {user?.name || "Bademala Nikhil"}
+                    {user?.name || "Deepthi Assistant"}
                   </h1>
                   <span className="text-xs font-black uppercase tracking-wider text-amber-300 bg-amber-400/15 border border-amber-400/30 px-3 py-1 rounded-full flex items-center gap-1">
                     <Sparkles className="w-3 h-3" /> Verified Candidate
@@ -108,11 +108,11 @@ export default function CandidateDashboard() {
                 <div className="flex flex-wrap items-center gap-y-1 gap-x-5 text-xs text-slate-400 mt-3 font-light">
                   <span className="flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                    {user?.location || "Hyderabad / Bangalore, India"}
+                    {user?.location || "Seattle / Remote, USA"}
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Mail className="w-3.5 h-3.5 text-amber-400" />
-                    {user?.email || "nikhil@hirehub.dev"}
+                    {user?.email || "deepthi@hirehub.dev"}
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Phone className="w-3.5 h-3.5 text-amber-400" />

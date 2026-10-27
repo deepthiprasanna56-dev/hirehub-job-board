@@ -54,10 +54,10 @@ export function JobProvider({ children }) {
               jobId: "job-1",
               appliedAt: "2 days ago",
               status: "Under Review",
-              name: "Bademala Nikhil",
-              email: "nikhil@hirehub.dev",
-              phone: "+91 98765 43210",
-              portfolio: "https://github.com/bademalanikhil",
+              name: "Deepthi Assistant",
+              email: "deepthi@hirehub.dev",
+              phone: "+1 (415) 555-0101",
+              portfolio: "https://github.com/microsoft/copilot",
               coverNote: "Excited about modern frontend systems and high-throughput UI design."
             }
           ];
@@ -81,15 +81,15 @@ export function JobProvider({ children }) {
       return savedUser
         ? JSON.parse(savedUser)
         : {
-            name: "Bademala Nikhil",
-            email: "nikhil@hirehub.dev",
-            phone: "+91 98765 43210",
+            name: "Deepthi Assistant",
+            email: "deepthi@hirehub.dev",
+            phone: "+1 (415) 555-0101",
             title: "Frontend Engineer / React Developer",
-            location: "Hyderabad / Bangalore, India",
+            location: "Seattle / Remote, USA",
             bio: "Passionate frontend developer crafting responsive, pixel-perfect web applications with React, Tailwind CSS, and Vite.",
             skills: ["React", "JavaScript", "Tailwind CSS", "TypeScript", "Node.js", "Git", "REST APIs"],
-            resumeName: "Bademala_Nikhil_Resume.pdf",
-            portfolioUrl: "https://nikhilbademala.dev",
+            resumeName: "Copilot_Assistant_Resume.pdf",
+            portfolioUrl: "https://github.com/microsoft/copilot",
             avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
             role: "Job Seeker"
           };
